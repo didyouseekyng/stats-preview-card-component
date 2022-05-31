@@ -1,0 +1,180 @@
+$colors: (
+  main-bg: hsl(233, 47%, 7%),
+  card-bg: hsl(244, 38%, 16%),
+  accent: hsl(277, 64%, 61%),
+  white: hsl(0, 0%, 100%),
+  main-text: hsla(0, 0%, 100%, 0.75),
+  stat-heading: hsla(0, 0%, 100%, 0.6),
+);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin mobileFirst($media) {
+  @media (min-width: calc($media/16)+em) {
+    @content;
+  }
+}
+
+body {
+  background-color: map-get($colors, main-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9375rem;
+  font-family: "Lexend Deca", sans-serif;
+  padding: 1rem 0rem 0rem;
+
+  @include mobileFirst(912) {
+    padding: 2rem 0rem 0rem;
+    min-height: 100vh;
+  }
+}
+
+footer {
+  color: map-get($colors, white);
+  position: relative;
+  top: -1.25rem;
+  text-align: center;
+  padding: 0rem 1rem;
+
+  a {
+    text-decoration: none;
+    color: map-get($colors, accent);
+    letter-spacing: 0.0938rem;
+  }
+
+  a:focus,
+  a:hover {
+    outline: 0.1875rem solid white;
+    outline-offset: 0.0625rem;
+    outline-color: map-get($colors, white);
+  }
+}
+
+.card {
+  background-color: map-get($colors, card-bg);
+  border-radius: 7px;
+  font-family: "Lexend Deca", sans-serif;
+  margin: 7% 6%;
+  text-align: center;
+  max-width: 21.1062rem;
+
+  @include mobileFirst(912) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    max-width: 55.5rem;
+    max-height: 22.25rem;
+    text-align: left;
+    margin: 3rem auto;
+  }
+
+  &__image-container {
+    border-radius: 7px 7px 0px 0px;
+    background-color: rgb(85, 4, 136);
+    height: 15.4906rem;
+    width: 100%;
+
+    @include mobileFirst(912) {
+      height: 22.25rem;
+      border-radius: 0px 7px 7px 0px;
+    }
+  }
+
+  &__image {
+    border-radius: 7px 7px 0px 0px;
+    width: 100%;
+    height: 15.4906rem;
+    opacity: 0.5;
+
+    @include mobileFirst(912) {
+      height: 22.25rem;
+      width: 100%;
+      border-radius: 0px 7px 7px 0px;
+    }
+  }
+
+  &__header {
+    color: map-get($colors, white);
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 1.85rem 1.5rem 0.2rem;
+    font-family: "Inter", sans-serif;
+    padding-right: 0.625rem;
+
+    @include mobileFirst(912) {
+      font-size: 1.9rem;
+      padding: 0.8125rem;
+      margin: 2.0625rem 1.5rem 0rem 2.7rem;
+    }
+  }
+
+  &__header span {
+    color: map-get($colors, accent);
+  }
+
+  &__paragraph {
+    color: map-get($colors, main-text);
+    font-family: "Inter", sans-serif;
+    font-size: 0.9187rem;
+    font-weight: 400;
+    padding: 0.45rem 2.5rem;
+    line-height: 1.7;
+
+    @include mobileFirst(912) {
+      font-size: 0.7875rem;
+      padding-left: 3.5625rem;
+      padding-right: 3.375rem;
+      margin-right: 1.25rem;
+      margin-bottom: 2.05rem;
+    }
+  }
+  @include mobileFirst(912) {
+    .row-alignment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3.4rem;
+      padding-right: 4.8125rem;
+      margin-left: 2.15rem;
+    }
+  }
+
+  &__stats {
+    display: flex;
+    flex-direction: column;
+    color: map-get($colors, white);
+    font-family: "Inter", sans-serif;
+    font-size: 0.8438rem;
+    font-weight: 400;
+    margin: 1.25rem 0rem 1.25rem;
+
+    @include mobileFirst(912) {
+      font-size: 0.7813rem;
+    }
+
+    @include mobileFirst(1280) {
+      margin-right: 3.4375rem;
+    }
+  }
+
+  &__text--light {
+    color: map-get($colors, stat-heading);
+    font-size: 0.6563rem;
+    letter-spacing: 0.0313rem;
+  }
+
+  &__margin {
+    margin-bottom: 1.875rem;
+
+    @include mobileFirst(912) {
+      margin: 0;
+    }
+  }
+}
