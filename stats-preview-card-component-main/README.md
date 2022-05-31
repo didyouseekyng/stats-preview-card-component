@@ -25,7 +25,7 @@ Users should be able to:
 
 #### Desktop Design
 
-![Desktop ](./design/desktop__screenshot.png)
+![Desktop ](./design/desktop__screenshot.PNG)
 
 #### Mobile Design
 
